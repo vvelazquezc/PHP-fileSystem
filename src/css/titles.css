@@ -1,0 +1,33 @@
+h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-text);
+}
+h4{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    padding-bottom: 10px;
+}
+h5{
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--color-text);
+}
+.text{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text);
+}
+
+.hover-folder {
+    width: 100%;
+    background-color: var(--background-hover-grey);
+    border-radius: 2px;
+}
+.hover-folder {
+    width: 100%;
+    background-color: var(--background-hover);
+    border-radius: 2px;
+
+}

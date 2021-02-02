@@ -1,0 +1,23 @@
+
+.wrapper-folders {
+    grid-area: aside;
+    background-color: var(--background-folders);
+    padding: 70px 5%;
+    border-right: 0.3px solid rgb(210, 210, 210);
+    box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.25);
+}
+.folders {
+    margin-bottom: 20px;
+}
+.folders-icon {
+    display: flex;
+    height: 25px;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 2px;
+}
+.folders-icon img {
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+}
