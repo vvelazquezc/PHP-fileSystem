@@ -61,21 +61,26 @@
         </div>
     </aside>
     <div class="wrapper-roots">
-        <div class="folders-icon">
+        <div class="folders-root">
             <img src="assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
         </div>
-        <div class="folders-icon">
+        <div class="folders-root">
             <img src="assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
         </div>
-        <div class="folders-icon">
-            <img src="assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
-        </div>
-        <div class="folders-icon">
-            <img src="assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
+        <div class="folders-info">
+            <div class="cover">
+                <img src="" alt="">
+            </div>
+            <h3>index.php</h3>
+            <p class="text">PHP source - 4KB</p>
+            <div class="info">
+                <h4>Information</h4>
+                <p class="text">Creación: <span>1 de enero de 2021, 1:00</span></p>
+                <p class="text">Modificación: <span>hoy 16:26</span></p>
+                <p class="text">Última apertura: <span>hoy 16:26</span></p>
+            </div>
         </div>
     </div>
     </div>
