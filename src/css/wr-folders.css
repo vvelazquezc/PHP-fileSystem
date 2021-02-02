@@ -15,6 +15,7 @@
     flex-flow: row nowrap;
     align-items: center;
     margin-bottom: 2px;
+    border-right: 0.3px solid rgb(210, 210, 210);
 }
 .folders-icon img {
     width: 16px;

@@ -20,14 +20,18 @@ h5{
     color: var(--color-text);
 }
 
+.hover {
+    width: 100%;
+    background-color: var(--background-hover);
+    border-radius: 2px;
+}
+.hover .text{
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+}
 .hover-folder {
     width: 100%;
     background-color: var(--background-hover-grey);
     border-radius: 2px;
-}
-.hover-folder {
-    width: 100%;
-    background-color: var(--background-hover);
-    border-radius: 2px;
-
 }

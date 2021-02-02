@@ -34,7 +34,7 @@
     <aside class="wrapper-folders">
         <div class="folders">
             <h4>Favoritos</h4>
-            <div class="folders-icon hover-folder">
+            <div class="folders-icon">
                 <img src="assets/img/folders.svg" alt="folder-icon">
                 <h5>root</h5>
             </div>
@@ -62,7 +62,19 @@
     </aside>
     <div class="wrapper-roots">
         <div class="folders-icon">
-            <img src="assets/img/folders.svg" alt="folder-icon">
+            <img src="assets/img/folder.png" alt="folder-icon">
+            <p class="text">root</p>
+        </div>
+        <div class="folders-icon">
+            <img src="assets/img/folder.png" alt="folder-icon">
+            <p class="text">root</p>
+        </div>
+        <div class="folders-icon">
+            <img src="assets/img/folder.png" alt="folder-icon">
+            <p class="text">root</p>
+        </div>
+        <div class="folders-icon">
+            <img src="assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
         </div>
     </div>

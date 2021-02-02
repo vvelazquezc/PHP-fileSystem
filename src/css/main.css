@@ -1,9 +1,9 @@
 @import './search.css';
 @import './arrows.css';
 @import './colors.css';
+@import './titles.css';
 @import './wr-folders.css';
 @import './wr-roots.css';
-@import './titles.css';
 
 * {
     box-sizing: inherit;
@@ -31,3 +31,4 @@
     text-align: center;
     background-color: var(--background-root);
 }
+

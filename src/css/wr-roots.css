@@ -1,7 +1,5 @@
 .wrapper-roots {
     grid-area: root;
-    display: grid;
-    gap: 10px;
-    padding: 10px;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-flow: column nowrap;
 }
