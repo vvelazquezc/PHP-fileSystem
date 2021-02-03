@@ -64,6 +64,13 @@
         <div class="folders-root">
             <img src="frontend/assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
+            <p class="text">
+                <?php 
+                $dir = 'C:\xampp\htdocs\LeyberProject\PHP-fileSystem/root';
+                $files = scandir($dir);
+                print_r($files);
+                ?>    
+            </p>
         </div>
         <div class="folders-root">
             <img src="frontend/assets/img/folder.png" alt="folder-icon">
