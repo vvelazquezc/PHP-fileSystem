@@ -61,32 +61,10 @@
         </div>
     </aside>
     <div class="wrapper-roots">
-        <div class="folders-root">
-            <img src="frontend/assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
-            <p class="text">
-                <?php 
-                $dir = 'C:\xampp\htdocs\LeyberProject\PHP-fileSystem/root';
-                $files = scandir($dir);
-                unset($files[0], $files[1]);
-                $string = '<script type ="text/javascript">var files =[ ';
-                foreach($files as $key => $item) {
-                print_r('<br>'.$item);
-                }
-                echo substr($string, 0, -1)."];</script>"; 
-                                //var_dump($files);
-                                //print_r($files);
-
-                                ?>    
-                
-            
-
-            </p>
-        </div>
-        <div class="folders-root">
-            <img src="frontend/assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
-        </div>
+        <section class="folders-path">
+        </section>
+        <section class="folders-path">
+        </section>
         <div class="folders-info">
             <div class="cover">
                 <img src="" alt="">
@@ -102,7 +80,6 @@
         </div>
     </div>
     </div>
-
-<script src="./frontend/src/js/listenners.js"> </script>
+    <script type="module" src="frontend/src/js/services/gettree.js"></script>
 </body>
 </html>
