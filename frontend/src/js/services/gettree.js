@@ -1,6 +1,6 @@
 import { $wrapperRoot } from "../components/folder.js"
 
-const dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/gettree.php'
+const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/gettree.php'
 const $content = document.querySelector('.folders-path')
 
 function getAbsolutePath(dir) {
