@@ -61,21 +61,10 @@
         </div>
     </aside>
     <div class="wrapper-roots">
-        <div class="folders-root">
-            <img src="frontend/assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
-            <p class="text">
-                <?php 
-                $dir = 'C:\xampp\htdocs\LeyberProject\PHP-fileSystem/root';
-                $files = scandir($dir);
-                print_r($files);
-                ?>    
-            </p>
-        </div>
-        <div class="folders-root">
-            <img src="frontend/assets/img/folder.png" alt="folder-icon">
-            <p class="text">root</p>
-        </div>
+        <section class="folders-path">
+        </section>
+        <section class="folders-path">
+        </section>
         <div class="folders-info">
             <div class="cover">
                 <img src="" alt="">
@@ -91,5 +80,6 @@
         </div>
     </div>
     </div>
+    <script type="module" src="frontend/src/js/services/gettree.js"></script>
 </body>
 </html>
