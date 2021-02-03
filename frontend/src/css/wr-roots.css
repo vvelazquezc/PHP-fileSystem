@@ -4,14 +4,16 @@
     display: flex;
     flex-flow: row wrap;
 }
+.folders-path {
+    width: 31.5%;
+    border-right: 0.3px solid rgb(210, 210, 210);
+}
 .folders-root {
     display: flex;
-    width: 31.5%;
     padding: 0 5px;
     height: 25px;
     align-items: center;
     margin-bottom: 2px;
-    border-right: 0.3px solid rgb(210, 210, 210);
 }
 
 .folders-root img {
