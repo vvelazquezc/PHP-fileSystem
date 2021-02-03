@@ -68,8 +68,19 @@
                 <?php 
                 $dir = 'C:\xampp\htdocs\LeyberProject\PHP-fileSystem/root';
                 $files = scandir($dir);
-                print_r($files);
-                ?>    
+                unset($files[0], $files[1]);
+                $string = '<script type ="text/javascript">var files =[ ';
+                foreach($files as $key => $item) {
+                print_r('<br>'.$item);
+                }
+                echo substr($string, 0, -1)."];</script>"; 
+                                //var_dump($files);
+                                //print_r($files);
+
+                                ?>    
+                
+            
+
             </p>
         </div>
         <div class="folders-root">
@@ -91,5 +102,7 @@
         </div>
     </div>
     </div>
+
+<script src="./frontend/src/js/listenners.js"> </script>
 </body>
 </html>
