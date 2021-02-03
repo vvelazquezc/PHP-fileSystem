@@ -30,20 +30,24 @@ const mapFolders = testArray.map(function(file){
         //It will update the relative path
 
         //It will display the info in the .folders-info
+        const general= document.querySelector('.wrapper-roots:first-child')
         //if the element clicked is a file
             //It will update the info but not open the file or modify the the wrapper-root second child
         //If the element is a folder
             //it will update the info and update the wrapper-roots second child
+            //addclass hover
     })
 
     file.addEventListener('dblclick', function() {
         //On double click will affect as follows
         //If it is a file
             //it will open the file
+            //take out hover
+            //
         //If it is a folder
             //It will make folder the one displayed on the first child of the wrapper-roots element
             //It will make the content of the folder displayed in the second child of the wrapper-roots div.
-    
+            //hover-folder
     })
 
 })
