@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FileSystem</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fronted/src/css/main.css">
+    <link rel="stylesheet" href="frontend/src/css/main.css">
 </head>
 <body>
     <div class="main-container">
@@ -35,11 +35,11 @@
         <div class="folders">
             <h4>Favoritos</h4>
             <div class="folders-icon">
-                <img src="fronted/assets/img/folders.svg" alt="folder-icon">
+                <img src="frontend/assets/img/folders.svg" alt="folder-icon">
                 <h5>root</h5>
             </div>
             <div class="folders-icon">
-                <img src="fronted/assets/img/trash-can.svg" alt="folder-icon">
+                <img src="frontend/assets/img/trash-can.svg" alt="folder-icon">
                 <h5>trash</h5>
             </div>
         </div>
@@ -47,26 +47,26 @@
         <div class="folders folders-edit">
             <h4>Edit </h4>
             <div class="folders-icon">
-                <img src="fronted/assets/img/refresh.svg" alt="folder-icon">
+                <img src="frontend/assets/img/refresh.svg" alt="folder-icon">
                 <h5>refresh</h5>
             </div>
             <div class="folders-icon">
-                <img src="fronted/assets/img/editar.svg" alt="folder-icon">
+                <img src="frontend/assets/img/editar.svg" alt="folder-icon">
                 <h5>edit</h5>
             </div>
             <div class="folders-icon">
-                <img src="fronted/assets/img/remove.svg" alt="folder-icon">
+                <img src="frontend/assets/img/remove.svg" alt="folder-icon">
                 <h5>remove</h5>
             </div>
         </div>
     </aside>
     <div class="wrapper-roots">
         <div class="folders-root">
-            <img src="fronted/assets/img/folder.png" alt="folder-icon">
+            <img src="frontend/assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
         </div>
         <div class="folders-root">
-            <img src="fronted/assets/img/folder.png" alt="folder-icon">
+            <img src="frontend/assets/img/folder.png" alt="folder-icon">
             <p class="text">root</p>
         </div>
         <div class="folders-info">
