@@ -1,5 +1,6 @@
 .header-arrows {
     display: flex;
+    width: 90%;
   }
 .header-arrows svg {
     width: 20px;
