@@ -16,7 +16,7 @@ let hey = function(){
     const relativeDir = `http://localhost/LeyberProject/PHP-fileSystem/root/${relativeText}`
     //secondTree.style.backgroundColor = 'red'
     console.log(relativeDir)
-    const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/gettree.php'
+    const dir = `http://localhost/LeyberProject/PHP-fileSystem/backend/folder/getSecondtree.php?subfolder=${relativeText}`
 
     function getRelativePath(dir) {
         fetch(dir, {
@@ -28,12 +28,17 @@ let hey = function(){
             }
             throw new Error(response.statusText)
         }).then(function(response) {
-            const listOfResults = JSON.parse(response)
+            console.log(response)
+            console.log(typeof(response))
+            const ret = response.replace(`${relativeText}`,'')
+
+            const listOfResults = JSON.parse(ret)
             console.log(listOfResults)
             listOfResults.map(function(item){
-               // console.log(item)
-                
+               console.log(item)
+                               
             })
+            secondTree.innerHTML=""
             $wrapperRoot.render(secondTree, listOfResults)})
         }
     getRelativePath(dir)
