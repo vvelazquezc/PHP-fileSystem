@@ -1,7 +1,4 @@
 <?php
-    // include 'gettree.php';
-    // $dir = '../../root';
-    // $files = clean_scandir($dir);
     $current_dir = '../../root/Another';
 
     $current_name = explode('/', $current_dir);
