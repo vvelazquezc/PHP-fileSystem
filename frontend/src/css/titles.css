@@ -19,7 +19,18 @@ h5{
     font-weight: 400;
     color: var(--color-text);
 }
-
+.folder, .folder:active {
+    width: 100%;
+    font: 300 12px;
+    font-size: 12px;
+    font-weight: 300;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-text);
+}
 .hover {
     width: 100%;
     background-color: var(--background-hover);
