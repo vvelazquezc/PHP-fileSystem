@@ -15,7 +15,8 @@ function creatFolder(folder) {
         })
         .then(function(response) {
             $content.innerHTML = '';
-            const listOfResults = JSON.parse(response)
+            let listOfResults = response.replace('Array', '')
+            listOfResults = JSON.parse(listOfResults)
             $wrapperRoot.render($content, listOfResults)
         })
     }
