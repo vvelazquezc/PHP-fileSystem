@@ -1,9 +1,6 @@
 <?php
     $current_dir = '../../root/OtraPrueba';
 
-    // $folder_todeleted = explode('/', $current_dir);
-    // $folder_todeleted = end($folder_todeleted);
-
     if(!file_exists($current_dir)) {
         echo 'no existe';
     } else {
