@@ -28,6 +28,7 @@ input.addEventListener('keyup', (e) => {
     var keycode = e.keyCode || e.which;
     if (keycode == 13) {
         const nameNewFolder = input.value
+        input.remove()
         creatFolder(nameNewFolder)
     }
 })

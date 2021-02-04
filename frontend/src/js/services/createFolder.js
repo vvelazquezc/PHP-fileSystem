@@ -1,3 +1,5 @@
+import { $wrapperRoot } from "../components/folder.js"
+
 let dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/create.php'
 
 const $content = document.querySelector('.folders-path')
@@ -12,9 +14,9 @@ function creatFolder(folder) {
             throw new Error(response.statusText)
         })
         .then(function(response) {
-            console.log(response);
-            // const listOfResults = JSON.parse(response)
-            // $wrapperInfo.render($content, listOfResults)
+            $content.innerHTML = '';
+            const listOfResults = JSON.parse(response)
+            $wrapperRoot.render($content, listOfResults)
         })
     }
 

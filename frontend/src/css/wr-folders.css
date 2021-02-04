@@ -30,3 +30,20 @@
     height: 16px;
     margin: 0 5px;
 }
+.trash {
+    margin-top: 10px;
+}
+.folder-tree {
+    width: 100%;
+}
+ul {
+    list-style-type: none;
+    padding: 5px 15px;
+    margin: 0;
+}
+
+li {
+    background: url('../../assets/img/folders.svg') no-repeat left center;
+    height: 13px;
+    padding-left: 20px;
+}
