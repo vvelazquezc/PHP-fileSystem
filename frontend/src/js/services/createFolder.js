@@ -1,26 +1,27 @@
 import { $wrapperRoot } from "../components/folder.js"
+import { renderFolder } from "./gettree.js";
 
-let dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/create.php'
+const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/create.php'
 
-const $content = document.querySelector('.folders-path')
+function createFolder(folderName, parentAbsolutePath) {
+    const folderAbsolutePath = `${parentAbsolutePath}/${folderName}`
 
-function creatFolder(folder) {
-    dir = `http://192.168.64.2/php/PHP-fileSystem/backend/folder/create.php?folder=${folder}`
-    fetch(dir)
+    fetch(`${endpointUrl}?folder=${folderAbsolutePath}`)
         .then(function(response) {
             if (response.status >= 200 && response.status < 300) {
-                return response.text()
+                return response.json()
             }
             throw new Error(response.statusText)
         })
-        .then(function(response) {
-            $content.innerHTML = '';
-            let listOfResults = response.replace('Array', '')
-            listOfResults = JSON.parse(listOfResults)
-            $wrapperRoot.render($content, listOfResults)
+        .then(function({ isCreated }) {
+            if (!isCreated) {
+                throw new Error('folder exists')
+            }
+            renderFolder(parentAbsolutePath)
         })
-    }
+        .catch(function(error) {
+            console.warn(error.message)
+        })
+}
 
-    creatFolder(dir)
-
-export { creatFolder }
+export { createFolder }

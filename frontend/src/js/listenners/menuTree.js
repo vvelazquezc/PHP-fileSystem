@@ -12,15 +12,7 @@ function openTree() {
                 return response.text()
             }
             throw new Error(response.statusText)
-            log
         }).then(function(response) {
-            // const ret = response.replace(`${relativeText}`,'')
-
-            // const listOfResults = JSON.parse(ret)
-            // listOfResults.map(function(item){
-            // })
-            // secondTree.innerHTML = ''
-            // $wrapperRoot.render(secondTree, listOfResults)
         })
 
 }

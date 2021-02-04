@@ -1,39 +1,23 @@
 import { $wrapperRoot } from "../components/folder.js"
 
-const dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/gettree.php'
+const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/gettree.php'
 const $content = document.querySelector('.folders-path')
 
-function getAbsolutePath(dir) {
-    fetch(dir, {
-        method: 'get',
-        // may be some code of fetching comes here
-    }).then(function(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response.text()
-        }
-        throw new Error(response.statusText)
-    }).then(function(response) {
-        const listOfResults = JSON.parse(response)
-        listOfResults.map(function(item){
-           // console.log(item)
-            
+function renderFolder(folderAbsolutePath) {
+    fetch(`${endpointUrl}?folder=${folderAbsolutePath}`)
+        .then(function(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response.text()
+            }
+            throw new Error(response.statusText)
         })
-        $wrapperRoot.render($content, listOfResults)})
-    // .then(
-    //     function listenerHelper(className, event, fn) {
-    //         let list = document.getElementsByClassName(className)
-    //         for(let i = 0; i < list.length; i++){
-    //             list[i].addEventListener(event, fn)
-    //         }
-    //     },
+        .then(function(response) {
+            $content.innerHTML = ''
+            const listOfResults = JSON.parse(response)
+            $wrapperRoot.render($content, listOfResults)
+        })
+}
 
-    //     listenerHelper('text', 'click' , function() {
-    //         console.log('I was clicked')
-    //     })
-        
-        
-    //     )
-    }
+renderFolder('/')
 
-getAbsolutePath(dir)
-export { getAbsolutePath }
+export { renderFolder }

@@ -1,5 +1,5 @@
-import { getAbsolutePath } from "./services/gettree.js";
+import { renderFolder } from "./services/gettree.js";
 import { getInfo } from "./services/info.js";
 
-// getAbsolutePath(dir)
+// renderFolder(dir)
 // getInfo(file, dir)

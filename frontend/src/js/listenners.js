@@ -3,19 +3,11 @@ import { $wrapperRoot } from "././components/folder.js"
 //requiring path and fs modules
 const $elements = document.getElementsByClassName('folders-root')
 
-setTimeout(function(){ console.log($elements) }, 1000);
-console.log($elements)
-
-//const $clicked = $elements.find('.hover')
-
 let hey = function(){
     let secondTree = document.querySelectorAll('.folders-path')[1]
     //selects me the text part of the object
     let relativeText = this.querySelector('.text').textContent
-    console.log(relativeText)
-    const relativeDir = `./root/${relativeText}`
-    //secondTree.style.backgroundColor = 'red'
-    console.log(relativeDir)
+
     const dir = `./backend/folder/getSecondTree.php?subfolder=${relativeText}`
 
     function getRelativePath(dir) {
@@ -28,16 +20,9 @@ let hey = function(){
             }
             throw new Error(response.statusText)
         }).then(function(response) {
-            console.log(response)
-            console.log(typeof(response))
             const ret = response.replace(`${relativeText}`,'')
 
             const listOfResults = JSON.parse(ret)
-            console.log(listOfResults)
-            listOfResults.map(function(item){
-               console.log(item)
-                               
-            })
             secondTree.innerHTML=""
             $wrapperRoot.render(secondTree, listOfResults)})
         }
@@ -47,16 +32,10 @@ let hey = function(){
 
 function addEventListenerByClass(list) {
     for(let i = 0; i < list.length; i++){
-        console.log(list[i])
-        console.log(typeof(list[i]))
         list[i].addEventListener('click', hey)
-        
     }
 }
 
 setTimeout(function(){ //se tiene que cambiar por un await Vero, no te molestes ;)
     addEventListenerByClass($elements)
-
-
 }, 1100);
-
