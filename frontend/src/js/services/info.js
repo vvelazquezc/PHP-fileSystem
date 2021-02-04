@@ -1,6 +1,6 @@
 import { $wrapperInfo } from "../components/info.js"
 
-const dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/read.php'
+const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/read.php'
 const $content = document.querySelector('.folders-info')
 
 function getInfo(dir) {

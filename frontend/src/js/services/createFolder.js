@@ -12,7 +12,7 @@ function creatFolder(folder) {
             throw new Error(response.statusText)
         })
         .then(function(response) {
-            // console.log(response);
+            console.log(response);
             // const listOfResults = JSON.parse(response)
             // $wrapperInfo.render($content, listOfResults)
         })
