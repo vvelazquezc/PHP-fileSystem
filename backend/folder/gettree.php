@@ -1,5 +1,5 @@
 <?php
-    $dir = '../../root';
+    $dir = '../../root/';
 
     $files = clean_scandir($dir);
     $files = json_encode($files);
