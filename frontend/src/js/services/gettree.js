@@ -20,6 +20,7 @@ function getAbsolutePath(dir) {
     })
 }
 getAbsolutePath(dir)
+export { getAbsolutePath }
 
 
 
