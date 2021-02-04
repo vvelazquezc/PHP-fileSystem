@@ -15,6 +15,8 @@ export const $wrapperRoot = {
             }
             const html = this.template(path, extension)
             $content.innerHTML += html
+            const elements = document.querySelectorAll('.text')
+            console.log(elements);
         });
     }
 }
