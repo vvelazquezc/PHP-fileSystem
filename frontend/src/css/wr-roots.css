@@ -10,7 +10,6 @@
 }
 .folders-root {
     display: flex;
-    padding: 0 5px;
     height: 25px;
     align-items: center;
     margin-bottom: 2px;

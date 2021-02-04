@@ -25,8 +25,22 @@
                     <path d="M-4.58892184e-16,0.56157424 L-4.58892184e-16,16.1929159 L9.708,8.33860465 L-1.64313008e-15,0.56157424 L-4.58892184e-16,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
                 </g>
             </svg>
+            <div class="folders-edit">
+            <h3>Here it will be the path root</h3>
+                <div class="folders-icon">
+                    <img src="frontend/assets/img/refresh.svg" alt="folder-icon">
+                    <h5 id="create">create</h5>
+                </div>
+                <div class="folders-icon">
+                    <img src="frontend/assets/img/editar.svg" alt="folder-icon">
+                    <h5 id="edit">edit</h5>
+                </div>
+                <div class="folders-icon">
+                    <img src="frontend/assets/img/remove.svg" alt="folder-icon">
+                    <h5 id="remove">remove</h5>
+                </div>
+            </div>
         </div>
-        <h3>Here it will be the path root</h3>
         <div class="search-box">
             <input placeholder="Search..."><span class="icon glyphicon glyphicon-search"></span>
         </div>
@@ -43,22 +57,6 @@
                 <h5>trash</h5>
             </div>
         </div>
-
-        <div class="folders folders-edit">
-            <h4>Edit </h4>
-            <div class="folders-icon">
-                <img src="frontend/assets/img/refresh.svg" alt="folder-icon">
-                <h5>refresh</h5>
-            </div>
-            <div class="folders-icon">
-                <img src="frontend/assets/img/editar.svg" alt="folder-icon">
-                <h5>edit</h5>
-            </div>
-            <div class="folders-icon">
-                <img src="frontend/assets/img/remove.svg" alt="folder-icon">
-                <h5>remove</h5>
-            </div>
-        </div>
     </aside>
     <div class="wrapper-roots">
         <section class="folders-path">
@@ -66,20 +64,11 @@
         <section class="folders-path">
         </section>
         <div class="folders-info">
-            <div class="cover">
-                <img src="" alt="">
-            </div>
-            <h3>index.php</h3>
-            <p class="text">PHP source - 4KB</p>
-            <div class="info">
-                <h4>Information</h4>
-                <p class="text">Creación: <span>1 de enero de 2021, 1:00</span></p>
-                <p class="text">Modificación: <span>hoy 16:26</span></p>
-                <p class="text">Última apertura: <span>hoy 16:26</span></p>
-            </div>
         </div>
     </div>
     </div>
     <script type="module" src="frontend/src/js/services/gettree.js"></script>
+    <script type="module" src="frontend/src/js/services/info.js"></script>
+    <script type="module" src="frontend/src/js/listenners/menu.js"></script>
 </body>
 </html>
