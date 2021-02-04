@@ -4,6 +4,7 @@
 @import './titles.css';
 @import './wr-folders.css';
 @import './wr-roots.css';
+@import './funtionalities.css';
 
 * {
     box-sizing: inherit;

@@ -1,0 +1,15 @@
+.folders-edit {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.new {
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 400;
+    height: 25px;
+    color: var(--color-text);
+    width: 90%;
+}
