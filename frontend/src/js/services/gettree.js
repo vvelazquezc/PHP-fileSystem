@@ -20,6 +20,7 @@ function renderFolder(folderAbsolutePath, treeMenu = false) {
                 $wrapperRoot.render($content, listOfResults)
             } else {
                 $wrapperTree.render($folders, listOfResults)
+                $wrapperRoot.render($content, listOfResults)
             }
         })
 }

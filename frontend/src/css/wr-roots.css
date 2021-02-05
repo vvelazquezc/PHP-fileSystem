@@ -11,7 +11,7 @@
 .folders-root {
     display: flex;
     height: 25px;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 2px;
 }
 
