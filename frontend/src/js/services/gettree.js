@@ -1,7 +1,10 @@
 import { $wrapperRoot } from "../components/folder.js"
 
-const dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/gettree.php'
+const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/gettree.php'
 const $content = document.querySelector('.folders-path')
+console.log('hello')
+
+
 
 function getAbsolutePath(dir) {
     fetch(dir, {
@@ -19,21 +22,9 @@ function getAbsolutePath(dir) {
             
         })
         $wrapperRoot.render($content, listOfResults)})
-    // .then(
-    //     function listenerHelper(className, event, fn) {
-    //         let list = document.getElementsByClassName(className)
-    //         for(let i = 0; i < list.length; i++){
-    //             list[i].addEventListener(event, fn)
-    //         }
-    //     },
-
-    //     listenerHelper('text', 'click' , function() {
-    //         console.log('I was clicked')
-    //     })
-        
-        
-    //     )
     }
 
 getAbsolutePath(dir)
-export { getAbsolutePath }
+
+
+
