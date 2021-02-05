@@ -1,10 +1,9 @@
-export const $wrapperRoot = {
-    name: 'wrapperRoot',
-    template: (path, extension) =>
-    `<div class="folders-root">
-        <img src="frontend/assets/img/${extension}.png" alt="folder-icon">
-        <p class="text">${path}</p>
-    </div>`
+export const $wrapperTree = {
+    name: 'wrapperTree',
+    template: (path) =>
+    `<ul>
+        <li><button class="folder">${path}</button></li>
+    </ul>`
     ,
     render: function ($content, listOfResults) {
         listOfResults.forEach(path => {
@@ -13,8 +12,9 @@ export const $wrapperRoot = {
                 const path_splitted = path.split('.')
                 extension = path_splitted.pop()
             }
-            const html = this.template(path, extension)
+            const html = this.template(path)
             $content.innerHTML += html
-        });
+        })
+
     }
 }
