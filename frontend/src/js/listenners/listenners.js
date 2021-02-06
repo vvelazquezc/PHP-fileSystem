@@ -2,7 +2,7 @@ import { $wrapperRoot } from "../components/folder.js"
 import { showTree } from "./menuTree.js"
 import { getInfoFolder } from "../services/info.js";
 import { renderFolder } from "../services/gettree.js";
-import { onEdit } from "./menuEdit.js";
+import { onEdit, onRemove } from "./menuEdit.js";
 
 const $elements = document.getElementsByClassName('folders-root')
 
@@ -17,6 +17,7 @@ function addEventListenerClick(list) {
             const nameFolder = list[i].textContent.trim()
             getInfoFolder(nameFolder)
             onEdit(list[i], nameFolder);
+            onRemove(list[i], nameFolder);
         })
     }
 }

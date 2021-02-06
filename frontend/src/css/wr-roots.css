@@ -6,6 +6,9 @@
 }
 .folders-path {
     width: 31.5%;
+    overflow: hidden;
+    overflow-x: scroll;
+    padding: 0 5px;
     border-right: 0.3px solid rgb(210, 210, 210);
 }
 .folders-root {

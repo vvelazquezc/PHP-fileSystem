@@ -1,5 +1,6 @@
 import { createFolder } from "../services/createFolder.js"
 import { editFolder } from "../services/editFolder.js"
+import { removeFolder } from "../services/removeFolder.js"
 
 const $createButton = document.querySelector('#create')
 const $editButton = document.querySelector('#edit')
@@ -61,7 +62,13 @@ function onEdit(wrapper, folder) {
     })
 }
 
+function onRemove(wrapper, folder){
+    $removeButton.addEventListener('click', () => {
+        removeFolder('', folder)
+    })
+}
+
 $createButton.addEventListener('click', onCreate)
-export { onEdit }
+export { onEdit, onRemove }
 
 
