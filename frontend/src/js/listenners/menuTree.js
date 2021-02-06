@@ -13,7 +13,7 @@ function addEventListenerByClass(list) {
 }
 function showTree(boolean) {
     const isTree = boolean
-    renderFolder('/', isTree)
+    renderFolder('/', false, isTree)
 }
 
 setTimeout(function(){ //se tiene que cambiar por un await Vero, no te molestes ;)

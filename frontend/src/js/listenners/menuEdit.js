@@ -1,12 +1,18 @@
 import { createFolder } from "../services/createFolder.js"
+import { editFolder } from "../services/editFolder.js"
 
 const $createButton = document.querySelector('#create')
 const $editButton = document.querySelector('#edit')
 const $removeButton = document.querySelector('#remove')
-
 const $wrapperRoot = document.querySelector('.folders-path')
 
-function onCreate() {
+function onCreate(folder) {
+    let placeholder = null
+    if (!folder) {
+        placeholder = 'Folder witout name'
+    } else {
+        placeholder = folder
+    }
     const $div = document.createElement('div')
     $div.classList.add('folders-root')
 
@@ -16,7 +22,7 @@ function onCreate() {
 
     const $input = document.createElement('input')
     $input.classList.add('new')
-    $input.setAttribute('placeholder', 'Folder witout name')
+    $input.setAttribute('placeholder', placeholder)
 
     $div.appendChild($img)
     $div.appendChild($input)
@@ -33,5 +39,29 @@ function onCreate() {
     })
 }
 
+function onEdit(wrapper, folder) {
+    $editButton.addEventListener('click', () => {
+        wrapper.classList.remove('hover')
+        const $input = document.createElement('input')
+        $input.classList.add('new')
+        $input.setAttribute('placeholder', folder)
+        const $folderP = wrapper.lastChild.previousSibling
+        const currentFolder = $folderP.textContent
+        wrapper.replaceChild($input, $folderP)
+        $input.focus();
+
+        $input.addEventListener('keyup', (e) => {
+            var keycode = e.keyCode || e.which;
+            if (keycode == 13) {
+                const nameNewFolder = $input.value
+                wrapper.remove()
+                editFolder(currentFolder, nameNewFolder, '')
+            }
+        })
+    })
+}
+
 $createButton.addEventListener('click', onCreate)
+export { onEdit }
+
 
