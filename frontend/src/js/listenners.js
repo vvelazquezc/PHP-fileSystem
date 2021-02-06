@@ -10,17 +10,9 @@ const secondTreeRender = function(){
     //selects me the text part of the object
     const relativeText = this.querySelector('.text').textContent
     console.log(relativeText)
-<<<<<<< HEAD
-    const relativeDir = `./root/${relativeText}`
-    //secondTree.style.backgroundColor = 'red'
-    console.log(relativeDir)
-    const dir = `./backend/folder/getSecondTree.php?subfolder=${relativeText}`
-
-=======
     //const relativeDir = `http://localhost/LeyberProject/PHP-fileSystem/root/${relativeText}`
     //console.log(relativeDir)
     const dir = `http://localhost/LeyberProject/PHP-fileSystem/backend/folder/getSecondtree.php?subfolder=${relativeText}`
->>>>>>> listenersII
     function getRelativePath(dir) {
         fetch(dir, {
             method: 'get',
@@ -56,15 +48,7 @@ function addEventListenerByClass(list) {
         list[i].addEventListener('click', secondTreeRender)
     }
 }
-<<<<<<< HEAD
-
-=======
 //Here we add the second function
->>>>>>> listenersII
 setTimeout(function(){ //se tiene que cambiar por un await Vero, no te molestes ;)
     addEventListenerByClass($elements)
 }, 1100);
-<<<<<<< HEAD
-
-=======
->>>>>>> listenersII
