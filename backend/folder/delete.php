@@ -1,25 +1,30 @@
 <?php
-    $current_dir = '../../root/OtraPrueba';
-
-    if(!file_exists($current_dir)) {
-        echo 'no existe';
-    } else {
-        echo 'existe';
-        deleteDirectory($current_dir);
-    }
 
 
-    function deleteDirectory($dir) {
-        if(!$dh = @opendir($dir)) return;
-        while (false !== ($current = readdir($dh))) {
-            if($current != '.' && $current != '..') {
-                echo 'Se ha borrado el archivo '.$dir.'/'.$current.'<br/>';
-                if (!@unlink($dir.'/'.$current)) 
-                    deleteDirectory($dir.'/'.$current);
-            }
+$is_delete = false;
+$absolute_path = $_GET["folder"];
+$dir = '../../root/' . $absolute_path;
+
+if(!file_exists($dir)) {
+} else {
+    deleteDirectory($dir);
+}
+
+function deleteDirectory($dir) {
+
+    if(!$dh = @opendir($dir)) return;
+    while (false !== ($current = readdir($dh))) {
+        if($current != '.' && $current != '..') {
+            $is_delete = true;
+            if (!@unlink($dir.'/'.$current)) 
+                deleteDirectory($dir.'/'.$current);
         }
-        closedir($dh);
-        echo 'Se ha borrado el directorio '.$dir.'<br/>';
-        @rmdir($dir);
     }
+    closedir($dh);
+    $is_delete = true;
+    @rmdir($dir);
+
+    $response = array('isRemove' => $is_delete);
+    echo json_encode($response);
+}
 ?>

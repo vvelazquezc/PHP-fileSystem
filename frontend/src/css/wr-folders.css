@@ -43,6 +43,7 @@ ul {
 
 li {
     background: url('../../assets/img/folders.svg') no-repeat left center;
-    height: 13px;
-    padding-left: 20px;
+    height: 15px;
+    display: flex;
+    padding-left: 24px;
 }
