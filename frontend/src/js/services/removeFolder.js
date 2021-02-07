@@ -1,9 +1,8 @@
-import { $wrapperRoot } from "../components/folder.js"
 import { renderFolder } from "./gettree.js";
 
-const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/create.php'
+const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/delete.php'
 
-function createFolder(folderName, parentAbsolutePath) {
+function removeFolder(parentAbsolutePath, folderName) {
     const folderAbsolutePath = `${parentAbsolutePath}/${folderName}`
 
     fetch(`${endpointUrl}?folder=${folderAbsolutePath}`)
@@ -13,8 +12,8 @@ function createFolder(folderName, parentAbsolutePath) {
             }
             throw new Error(response.statusText)
         })
-        .then(function({ isCreated }) {
-            if (!isCreated) {
+        .then(function({ isRemove }) {
+            if (!isRemove) {
                 throw new Error('folder exists')
             }
             renderFolder(parentAbsolutePath)
@@ -24,4 +23,4 @@ function createFolder(folderName, parentAbsolutePath) {
         })
 }
 
-export { createFolder }
+export { removeFolder }

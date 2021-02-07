@@ -1,18 +1,19 @@
 <?php
-    $current_dir = '../../root/Another';
+    $is_rename = false;
+    $absolute_path = "/" . $_GET["folder"];
+    $new_name = $_GET["newFolder"];
+    $dir = '../../root' . $absolute_path;
 
-    $current_name = explode('/', $current_dir);
+    $current_name = explode('/', $dir);
     $current_name = end($current_name);
 
-    $new_name = 'FolderChange';
+    $new_dir = str_replace($current_name, $new_name, $dir);
 
-    $new_dir = str_replace($current_name, $new_name, $current_dir);
-
-
-    if(!file_exists($current_dir)) {
-        echo 'no existe';
+    if(!file_exists($dir)) {
     } else {
-        echo 'existe';
-        rename($current_dir, $new_dir);
+        rename($dir, $new_dir);
+        $is_rename = true;
     }
+    $response = array('isEdited' => $is_rename);
+    echo json_encode($response);
 ?>
