@@ -4,7 +4,7 @@ const $folders = document.getElementsByClassName('folder')
 
 function openTree() {
     const relativeText = this.innerText
-    const dir = `http://192.168.64.2/php/PHP-fileSystem/backend/folder/getSecondTree.php?subfolder=${relativeText}`
+    const dir = `http://localhost/LeyberProject/PHP-fileSystem/backend/folder/getSecondTree.php?subfolder=${relativeText}`
     console.log(relativeText);
         fetch(dir)
         .then(function(response) {

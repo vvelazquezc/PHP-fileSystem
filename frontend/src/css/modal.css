@@ -1,0 +1,9 @@
+.modal-content {
+    width: 70vw;
+    height: 80vh;
+}
+
+.modal-body {
+    height: 50vh;
+    background-image: url('http://localhost/LeyberProject/PHP-fileSystem/root/test2/satan.jpg');
+}

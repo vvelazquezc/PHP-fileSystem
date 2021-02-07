@@ -14,8 +14,8 @@ function renameFolder(dir) {
         })
         .then(function(response) {
             console.log(response);
-            // const listOfResults = JSON.parse(response)
-            // $wrapperInfo.render($content, listOfResults)
+            const listOfResults = JSON.parse(response)
+            $wrapperInfo.render($content, listOfResults)
         })
     }
 
