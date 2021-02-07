@@ -1,6 +1,6 @@
 
 
-const dir = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/rename.php'
+const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/rename.php'
 const $content = document.querySelector('.folders-path')
 
 function renameFolder(dir) {
@@ -14,8 +14,8 @@ function renameFolder(dir) {
         })
         .then(function(response) {
             console.log(response);
-            // const listOfResults = JSON.parse(response)
-            // $wrapperInfo.render($content, listOfResults)
+            const listOfResults = JSON.parse(response)
+            $wrapperInfo.render($content, listOfResults)
         })
     }
 

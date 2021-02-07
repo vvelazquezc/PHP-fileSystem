@@ -1,0 +1,23 @@
+.modal-content {
+    width: 70vw;
+    height: 80vh;
+}
+
+.modal-body {
+    height: 50vh;
+}
+
+.mediaDisplayer{
+    height: 100%;
+    width: 100%;
+}
+
+.imageDisplayer {
+    height: 100%;
+    width: 100%;
+}
+
+.videoDisplayer {
+    height: 100%;
+    width: 100%;
+}

@@ -1,7 +1,11 @@
 import { $wrapperRoot } from "../components/folder.js"
 import { $wrapperTree } from "../components/tree.js"
 
+<<<<<<< HEAD
 const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/gettree.php'
+=======
+const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/gettree.php'
+>>>>>>> modal
 const $content = document.querySelector('.folders-path')
 const $folders = document.querySelector('.folders-tree')
 const $secondTree = document.querySelectorAll('.folders-path')[1]
