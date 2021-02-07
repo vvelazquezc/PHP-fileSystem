@@ -40,8 +40,8 @@ h5{
 }
 .hover .text{
     font-size: 12px;
-    font-weight: 400;
     color: white;
+    font-weight: 600;
 }
 .hover-folder {
     width: 100%;
