@@ -13,8 +13,13 @@ export const $wrapperInfo = {
             <p class="text">Last opening: <span>${change}</span></p>
         </div>`
     ,
-    render: function ($content, listOfResults) {
-        const extension = 'folder'
+    render: function ($content, listOfResults, extension) {
+        let typeExtension = ''
+        if (!extension) {
+            typeExtension = extension
+        } else {
+            typeExtension = 'folder'
+        }
         const html = this.template(listOfResults, extension)
         $content.innerHTML += html
 

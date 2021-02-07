@@ -1,4 +1,5 @@
 import { createFolder } from "../services/createFolder.js"
+import { editFile } from "../services/editFile.js"
 import { editFolder } from "../services/editFolder.js"
 import { removeFolder } from "../services/removeFolder.js"
 
@@ -40,23 +41,38 @@ function onCreate(folder) {
     })
 }
 
-function onEdit(wrapper, folder) {
+function onEdit(wrapper, name, type, extension) {
     $editButton.addEventListener('click', () => {
         wrapper.classList.remove('hover')
         const $input = document.createElement('input')
         $input.classList.add('new')
-        $input.setAttribute('placeholder', folder)
-        const $folderP = wrapper.lastChild.previousSibling
-        const currentFolder = $folderP.textContent
-        wrapper.replaceChild($input, $folderP)
+        $input.setAttribute('placeholder', name)
+        let currentFolder = ''
+
+        if (type == 'folder') {
+            const $folderP = wrapper.lastChild.previousSibling
+            currentFolder = $folderP.textContent
+            wrapper.replaceChild($input, $folderP)
+        } else if (type == 'file') {
+            const paragraph = wrapper
+            const paragraphParent = paragraph.parentNode
+            paragraphParent.classList.remove('hover')
+            const $fileP = paragraphParent.lastChild.previousSibling
+            paragraphParent.replaceChild($input, $fileP)
+        }
         $input.focus();
 
         $input.addEventListener('keyup', (e) => {
             var keycode = e.keyCode || e.which;
             if (keycode == 13) {
-                const nameNewFolder = $input.value
+                const nameNew = $input.value
                 wrapper.remove()
-                editFolder(currentFolder, nameNewFolder, '')
+                if (type == 'folder') {
+                    editFolder(currentFolder, nameNew, '')
+                } else if (type == 'file') {
+                    const nameNewFile = `${nameNew}.${extension}`
+                    editFile(name, nameNewFile, '')
+                }
             }
         })
     })
