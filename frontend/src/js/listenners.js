@@ -16,7 +16,7 @@ let hey = function(){
     const relativeDir = `http://localhost/LeyberProject/PHP-fileSystem/root/${relativeText}`
     //secondTree.style.backgroundColor = 'red'
     console.log(relativeDir)
-    const dir = `http://localhost/LeyberProject/PHP-fileSystem/backend/folder/getSecondtree.php?subfolder=${relativeText}`
+    const dir = `http://localhost/LeyberProject/PHP-fileSystem/backend/folder/listContent.php?subfolder=${relativeText}`
 
     function getRelativePath(dir) {
         fetch(dir, {

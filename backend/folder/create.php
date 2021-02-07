@@ -1,8 +1,8 @@
 <?php
     $is_created = false;
-    $name_folder = $_GET["folder"];
+    $absolute_path = $_GET["folder"];
     //TODO: Validation
-    $dir = "../../root/" . $name_folder;
+    $dir = "../../root" . $absolute_path;
     if (!is_dir($dir)) {
         mkdir($dir, 0777, true);
         $is_created = true;

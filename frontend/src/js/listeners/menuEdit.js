@@ -63,8 +63,8 @@ function onEdit(wrapper, name, type, extension) {
         $input.focus();
 
         $input.addEventListener('keyup', (e) => {
-            var keycode = e.keyCode || e.which;
-            if (keycode == 13) {
+            const keycode = e.code;
+            if (keycode === 'Enter') {
                 const nameNew = $input.value
                 wrapper.remove()
                 if (type == 'folder') {

@@ -1,6 +1,7 @@
-export const $wrapperInfo = {
-    name: 'wrapperRoot',
-    template: ({ access, modificated, change, size_bytes, name_folder }, extension) =>
+import { getInfoFolder } from "../services/info.js"
+
+export const infoComponent = {
+    template: ({ access, modificated, change, size_bytes, name_folder, extension = 'folder' }) =>
     `<div class="cover">
             <img src="frontend/assets/img/${extension}.png" alt="cover">
         </div>
@@ -13,15 +14,15 @@ export const $wrapperInfo = {
             <p class="text">Last opening: <span>${change}</span></p>
         </div>`
     ,
-    render: function ($content, listOfResults, extension) {
-        let typeExtension = ''
-        if (!extension) {
-            typeExtension = extension
-        } else {
-            typeExtension = 'folder'
-        }
-        const html = this.template(listOfResults, extension)
-        $content.innerHTML += html
+    render: function (absolutePath) {
+        const $content = document.querySelector('.folders-info')
 
+        console.log('absolutePath', absolutePath)
+
+        return getInfoFolder(absolutePath).then(file => {
+            console.log('file', file)
+            const html = this.template(file)
+            $content.innerHTML += html
+        })
     }
 }
