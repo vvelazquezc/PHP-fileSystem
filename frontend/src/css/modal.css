@@ -5,5 +5,19 @@
 
 .modal-body {
     height: 50vh;
-    background-image: url('http://localhost/LeyberProject/PHP-fileSystem/root/test2/satan.jpg');
+}
+
+.mediaDisplayer{
+    height: 100%;
+    width: 100%;
+}
+
+.imageDisplayer {
+    height: 100%;
+    width: 100%;
+}
+
+.videoDisplayer {
+    height: 100%;
+    width: 100%;
 }

@@ -14,8 +14,10 @@ function creatFolder(folder) {
             throw new Error(response.statusText)
         })
         .then(function(response) {
-            $content.innerHTML = '';
-            let listOfResults = response.replace('Array', '')
+            //$content.innerHTML = '';
+            console.log(response)
+            let listOfResults = response.replace('Array', ' ')
+            console.log(listOfResults)
             listOfResults = JSON.parse(listOfResults)
             $wrapperRoot.render($content, listOfResults)
         })
