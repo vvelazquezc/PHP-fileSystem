@@ -19,7 +19,7 @@ function listenerClickFile($file) {
         const type = 'file'
 
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFile}`)
-        // onEdit($file, nameFile, type, extension);
+        onEdit($file, nameFile, type, extension);
     //     // onRemove($file, nameFolder);
     })
 }

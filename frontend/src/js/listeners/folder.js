@@ -17,8 +17,8 @@ function listenerClickFolder($folder) {
 
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFolder}`)
 
-        onEdit($folder, nameFolder, type, '')
-        onRemove($folder, nameFolder)
+        onEdit($folder, `${folderColumnComponent.absolutePath}${nameFolder}`, nameFolder, type, '')
+        // onRemove($folder, nameFolder)
     })
 }
 

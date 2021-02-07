@@ -1,3 +1,4 @@
+import { folderColumnComponent } from "../components/folder.js"
 import { createFolder } from "../services/createFolder.js"
 import { editFile } from "../services/editFile.js"
 import { editFolder } from "../services/editFolder.js"
@@ -41,17 +42,17 @@ function onCreate(folder) {
     })
 }
 
-function onEdit(wrapper, name, type, extension) {
+function onEdit(wrapper, absolutePath, name, type, extension) {
+
     $editButton.addEventListener('click', () => {
+
         wrapper.classList.remove('hover')
         const $input = document.createElement('input')
         $input.classList.add('new')
         $input.setAttribute('placeholder', name)
-        let currentFolder = ''
 
         if (type == 'folder') {
             const $folderP = wrapper.lastChild.previousSibling
-            currentFolder = $folderP.textContent
             wrapper.replaceChild($input, $folderP)
         } else if (type == 'file') {
             const paragraph = wrapper
@@ -68,10 +69,17 @@ function onEdit(wrapper, name, type, extension) {
                 const nameNew = $input.value
                 wrapper.remove()
                 if (type == 'folder') {
-                    editFolder(currentFolder, nameNew, '')
+                    let absolutePathParent = absolutePath.split('/')
+                    if (absolutePathParent[0] == '') {
+                        absolutePathParent = ''
+                    }
+                    const isEdited = editFolder(absolutePath, nameNew, absolutePathParent)
+                    if (isEdited) {
+                        folderColumnComponent.renderOnLeft(absolutePathParent)
+                    }
                 } else if (type == 'file') {
                     const nameNewFile = `${nameNew}.${extension}`
-                    editFile(name, nameNewFile, '')
+                    editFile(absolutePath, nameNewFile, '')
                 }
             }
         })
