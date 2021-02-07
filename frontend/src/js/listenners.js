@@ -69,8 +69,7 @@ const secondTreeRender = function(){
         console.log(this.attributes)
         //Setting up the modal properties
         console.log(mediaTypeIdentifier)
-        console.log(modal)
-        const modal = document.getElementsByClassName('modal-body').className = 'modal-body bodyOpen'
+        const modal = document.getElementsByClassName('modal-body').className = 'bodyOpen'
         console.log(modal.className)
         modal.style.backgroundImage = `url('"'${relativeDir}'"')`
 
