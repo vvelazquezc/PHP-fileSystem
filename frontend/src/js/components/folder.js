@@ -1,4 +1,5 @@
 import { createElementFromHTML } from "../helpers/html.js";
+import { listenerClickFile } from "../listeners/file.js";
 import { listenerClickFolder, listenerDblClickFolder } from "../listeners/folder.js";
 import { listContent } from "../services/listContent.js";
 
@@ -26,7 +27,7 @@ export const folderColumnComponent = {
         `)
     },
     render: function ($parent, absolutePath) {
-        $parent.innerHTML = 'Loading...'
+        $parent.innerHTML = '<p class="text">Loading...</p>'
 
         return listContent(absolutePath)
             .then(items => {
@@ -40,6 +41,8 @@ export const folderColumnComponent = {
                     if (isFolder) {
                         listenerClickFolder($item)
                         listenerDblClickFolder($item)
+                    } else {
+                        listenerClickFile($item)
                     }
 
                     $parent.appendChild($item)

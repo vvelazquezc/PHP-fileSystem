@@ -5,24 +5,23 @@ export const infoComponent = {
     `<div class="cover">
             <img src="frontend/assets/img/${extension}.png" alt="cover">
         </div>
-        <h3>${name_folder}</h3>
-        <p class="text">${extension} document - ${size_bytes}KB</p>
+        <h3>${name_folder.substr(1)}</h3>
+        <p class="text">${extension.toUpperCase()} document - ${size_bytes}KB</p>
         <div class="info">
             <h4>Information</h4>
-            <p class="text">Creation: <span>${access}</span></p>
-            <p class="text">Modification: <span>${modificated}</span></p>
-            <p class="text">Last opening: <span>${change}</span></p>
+            <p class="text">Creation: <span>${access.substring(0, access.length - 1)}</span></p>
+            <p class="text">Modification: <span>${modificated.substring(0, modificated.length - 1)}</span></p>
+            <p class="text">Last opening: <span>${change.substring(0, change.length - 1)}</span></p>
         </div>`
     ,
     render: function (absolutePath) {
         const $content = document.querySelector('.folders-info')
-
-        console.log('absolutePath', absolutePath)
+        $content.innerHTML = ''
 
         return getInfoFolder(absolutePath).then(file => {
-            console.log('file', file)
             const html = this.template(file)
             $content.innerHTML += html
+
         })
     }
 }
