@@ -11,8 +11,6 @@ const $wrapperRoot = document.querySelector('.folders-path')
 
 function onCreate() {
 
-    console.log('llego');
-
     const $div = document.createElement('div')
     $div.classList.add('folders-root')
 
@@ -93,6 +91,7 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
 }
 
 function onRemove(absolutePathParent, name, type){
+    console.log(type);
     $removeButton.addEventListener('click', () => {
         console.log(absolutePathParent, '<br>', name);
 
