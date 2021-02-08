@@ -6,7 +6,7 @@ export const infoComponent = {
             <img src="frontend/assets/img/${extension}.png" alt="cover">
         </div>
         <h3>${name_folder.substr(1)}</h3>
-        <p class="text">${extension.toUpperCase()} document - ${size_bytes}KB</p>
+        <p class="text">${extension.toUpperCase()} document - ${size_bytes}</p>
         <div class="info">
             <h4>Information</h4>
             <p class="text">Creation: <span>${access.substring(0, access.length - 1)}</span></p>

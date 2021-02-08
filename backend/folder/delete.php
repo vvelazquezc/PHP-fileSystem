@@ -2,7 +2,7 @@
 
 
 $is_delete = false;
-$absolute_path = $_GET["folder"];
+$absolute_path =  "/" . $_GET["folder"];
 $dir = '../../root' . $absolute_path;
 
 if(!file_exists($dir)) {
@@ -16,7 +16,7 @@ function deleteDirectory($dir) {
     while (false !== ($current = readdir($dh))) {
         if($current != '.' && $current != '..') {
             $is_delete = true;
-            if (!@unlink($dir.'/'.$current)) 
+            if (!@unlink($dir.'/'.$current))
                 deleteDirectory($dir.'/'.$current);
         }
     }

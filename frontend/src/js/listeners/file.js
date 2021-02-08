@@ -20,10 +20,9 @@ function listenerClickFile($file) {
         const extension = name_splitted.pop()
         const type = 'file'
 
-        const absolutePath = `${folderColumnComponent.absolutePath}${nameFile}`
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFile}`)
         onEdit($file, nameFile, type, extension);
-        openModal(nameFile, extension, absolutePath)
+        // openModal(nameFile, extension, absolutePath)
     //     // onRemove($file, nameFolder);
     })
 }

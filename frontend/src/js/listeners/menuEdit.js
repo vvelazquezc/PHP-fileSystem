@@ -4,18 +4,14 @@ import { editFile } from "../services/editFile.js"
 import { editFolder } from "../services/editFolder.js"
 import { removeFolder } from "../services/removeFolder.js"
 
-const $createButton = document.querySelector('#create')
 const $editButton = document.querySelector('#edit')
 const $removeButton = document.querySelector('#remove')
 const $wrapperRoot = document.querySelector('.folders-path')
 
-function onCreate(folder) {
-    let placeholder = null
-    if (!folder) {
-        placeholder = 'Folder witout name'
-    } else {
-        placeholder = folder
-    }
+function onCreate() {
+
+    console.log('llego');
+
     const $div = document.createElement('div')
     $div.classList.add('folders-root')
 
@@ -25,7 +21,7 @@ function onCreate(folder) {
 
     const $input = document.createElement('input')
     $input.classList.add('new')
-    $input.setAttribute('placeholder', placeholder)
+    $input.setAttribute('placeholder', 'Folder witout name')
 
     $div.appendChild($img)
     $div.appendChild($input)
@@ -37,7 +33,11 @@ function onCreate(folder) {
         if (keycode == 13) {
             const nameNewFolder = $input.value
             $div.remove()
-            createFolder(nameNewFolder, '/')
+            const isCreated = createFolder(nameNewFolder, '/')
+            if (isCreated) {
+                $wrapperRoot.innerHTML = ''
+                folderColumnComponent.renderOnLeft('/')
+            }
         }
     })
 }
@@ -79,20 +79,25 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
                     }
                 } else if (type == 'file') {
                     const nameNewFile = `${nameNew}.${extension}`
-                    editFile(absolutePath, nameNewFile, '')
+                    editFile(absolutePath, nameNewFile, absolutePathParent)
+                    folderColumnComponent.renderOnLeft(absolutePathParent)
                 }
             }
         })
     })
 }
 
-function onRemove(wrapper, folder){
+function onRemove(absolutePathParent, name){
     $removeButton.addEventListener('click', () => {
-        removeFolder('', folder)
+        console.log(absolutePathParent, '<br>', name);
+        const isRemove = removeFolder(absolutePathParent, name)
+        if (isRemove) {
+            console.log('carpeta eliminada');
+            folderColumnComponent.renderOnLeft(absolutePathParent)
+        }
     })
 }
 
-$createButton.addEventListener('click', onCreate)
-export { onEdit, onRemove }
+export { onEdit, onRemove, onCreate }
 
 
