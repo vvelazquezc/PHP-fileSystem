@@ -1,4 +1,4 @@
-const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/file/rename.php'
+const endpointUrl = 'http://localhost/LeyberProject/PHP-fileSystem/backend/file/rename.php'
 
 function editFile(currentFile, newFileName, parentAbsolutePath) {
     const folderAbsolutePath = `${parentAbsolutePath}/${currentFile}`

@@ -1,4 +1,4 @@
-const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/delete.php'
+const endpointUrl = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/delete.php'
 
 function removeFolder(parentAbsolutePath, folderName) {
     const folderAbsolutePath = `${parentAbsolutePath}/${folderName}`
