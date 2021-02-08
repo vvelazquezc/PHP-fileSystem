@@ -17,7 +17,7 @@ const secondTreeRender = function () {
         splitRelativeText[splitRelativeText.length - 3] +
         splitRelativeText[splitRelativeText.length - 2] +
         splitRelativeText[splitRelativeText.length - 1];
-    var relativeDir = `http://localhost/LeyberProject/PHP-fileSystem/root/${relativeText}`;
+    var relativeDir = `http://192.168.64.2/php//PHP-fileSystem/root/${relativeText}`;
     const dir = `./backend/folder/getSecondtree.php?subfolder=${relativeText}`;
     if (fileFolderSeparator != ".") {
     console.log("Im not a file, but a folder");

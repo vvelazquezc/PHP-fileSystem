@@ -1,4 +1,4 @@
-const dir = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/rename.php'
+const dir = 'http://192.168.64.2/php//PHP-fileSystem/backend/folder/rename.php'
 
 function renameFolder(dir) {
     return fetch(dir)

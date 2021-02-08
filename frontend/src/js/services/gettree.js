@@ -1,4 +1,4 @@
-const endpointUrl = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/getTree.php'
+const endpointUrl = 'http://192.168.64.2/php//PHP-fileSystem/backend/folder/getTree.php'
 
 function getTree(folderAbsolutePath) {
     return fetch(`${endpointUrl}?folder=${folderAbsolutePath}`)

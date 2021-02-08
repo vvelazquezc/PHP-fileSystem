@@ -1,4 +1,4 @@
-const endpointUrl = 'http://localhost/LeyberProject/PHP-fileSystem/backend/folder/create.php'
+const endpointUrl = 'http://192.168.64.2/php//PHP-fileSystem/backend/folder/create.php'
 
 function createFolder(folderName, parentAbsolutePath) {
     const folderAbsolutePath = `${parentAbsolutePath}/${folderName}`
