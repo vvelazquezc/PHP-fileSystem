@@ -1,6 +1,6 @@
 <?php
     $is_rename = false;
-    $absolute_path = "/" . $_GET["file"];
+    $absolute_path = $_GET["file"];
     $new_name = $_GET["newFile"];
     $dir = '../../root' . $absolute_path;
 

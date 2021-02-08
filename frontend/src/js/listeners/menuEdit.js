@@ -54,33 +54,37 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
         if (type == 'folder') {
             const $folderP = wrapper.lastChild.previousSibling
             wrapper.replaceChild($input, $folderP)
-        } else if (type == 'file') {
+            $input.focus();
+        } else {
             const paragraph = wrapper
-            const paragraphParent = paragraph.parentNode
-            paragraphParent.classList.remove('hover')
-            const $fileP = paragraphParent.lastChild.previousSibling
-            paragraphParent.replaceChild($input, $fileP)
+            const $fileP = paragraph.lastChild.previousSibling
+            paragraph.replaceChild($input, $fileP)
+            $input.value = `.${extension}`
+            $input.focus();
+            $input.setSelectionRange(0, extension.length + 1);
         }
-        $input.focus();
-
         $input.addEventListener('keyup', (e) => {
             const keycode = e.code;
             if (keycode === 'Enter') {
                 const nameNew = $input.value
                 wrapper.remove()
+
+                let absolutePathParent = absolutePath.split('/')
+                if (absolutePathParent[0] == '') {
+                    absolutePathParent = '/'
+                }
+
                 if (type == 'folder') {
-                    let absolutePathParent = absolutePath.split('/')
-                    if (absolutePathParent[0] == '') {
-                        absolutePathParent = ''
-                    }
-                    const isEdited = editFolder(absolutePath, nameNew, absolutePathParent)
-                    if (isEdited) {
+                    const isEditedFolder = editFolder(absolutePath, nameNew, absolutePathParent)
+                    if (isEditedFolder) {
                         folderColumnComponent.renderOnLeft(absolutePathParent)
                     }
-                } else if (type == 'file') {
-                    const nameNewFile = `${nameNew}.${extension}`
-                    editFile(absolutePath, nameNewFile, absolutePathParent)
-                    folderColumnComponent.renderOnLeft(absolutePathParent)
+                } else {
+                    const isEditedFile = editFile(absolutePath, nameNew)
+                    if (isEditedFile) {
+                        console.log(absolutePathParent);
+                        folderColumnComponent.renderOnLeft(absolutePathParent)
+                    }
                 }
             }
         })
