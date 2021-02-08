@@ -3,7 +3,7 @@
 
 $is_delete = false;
 $absolute_path = $_GET["folder"];
-$dir = '../../root/' . $absolute_path;
+$dir = '../../root' . $absolute_path;
 
 if(!file_exists($dir)) {
 } else {
