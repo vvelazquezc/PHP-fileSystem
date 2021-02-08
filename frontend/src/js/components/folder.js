@@ -1,6 +1,7 @@
 import { createElementFromHTML } from "../helpers/html.js";
 import { listenerClickFile } from "../listeners/file.js";
 import { listenerClickFolder, listenerDblClickFolder } from "../listeners/folder.js";
+import { onCreate } from "../listeners/menuEdit.js";
 import { listContent } from "../services/listContent.js";
 
 export const folderColumnComponent = {
@@ -28,6 +29,9 @@ export const folderColumnComponent = {
     },
     render: function ($parent, absolutePath) {
         $parent.innerHTML = '<p class="text">Loading...</p>'
+
+        const $createButton = document.querySelector('#create')
+        $createButton.addEventListener('click', onCreate)
 
         return listContent(absolutePath)
             .then(items => {

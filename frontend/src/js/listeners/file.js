@@ -1,7 +1,8 @@
 import { folderColumnComponent } from "../components/folder.js";
 import { infoComponent } from "../components/info.js";
-
 import { onEdit, onRemove } from "./menuEdit.js";
+
+
 import { openModal } from "./modal.js";
 
 function listenerClickFile($file) {
@@ -15,17 +16,16 @@ function listenerClickFile($file) {
         $file.classList.add('hover')
 
         const nameFile = $file.textContent.trim()
-        console.log(nameFile);
 
         const name_splitted = nameFile.split('.')
         const extension = name_splitted.pop()
         const type = 'file'
 
-        const absolutePath = `${folderColumnComponent.absolutePath}${nameFile}`
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFile}`)
-        onEdit($file, nameFile, type, extension);
+
+        onEdit($file, `${folderColumnComponent.absolutePath}${nameFile}`, nameFile, type, extension)
+        onRemove(`${folderColumnComponent.absolutePath}`, nameFile, type)
         openModal(nameFile, extension, absolutePath, this)
-    //     // onRemove($file, nameFolder);
     })
 }
 

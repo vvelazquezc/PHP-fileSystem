@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     flex-flow: row nowrap;
+    align-items: center;
     justify-content: space-between;
 }
 .new {
@@ -9,7 +10,6 @@
     outline: none;
     font-size: 12px;
     font-weight: 400;
-    height: 25px;
     color: var(--color-text);
     width: 90%;
 }

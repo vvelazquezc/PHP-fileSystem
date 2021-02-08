@@ -2,20 +2,17 @@ import { folderColumnComponent } from "../components/folder.js"
 import { createFolder } from "../services/createFolder.js"
 import { editFile } from "../services/editFile.js"
 import { editFolder } from "../services/editFolder.js"
+import { removeFile } from "../services/removeFile.js"
 import { removeFolder } from "../services/removeFolder.js"
 
-const $createButton = document.querySelector('#create')
 const $editButton = document.querySelector('#edit')
 const $removeButton = document.querySelector('#remove')
 const $wrapperRoot = document.querySelector('.folders-path')
 
-function onCreate(folder) {
-    let placeholder = null
-    if (!folder) {
-        placeholder = 'Folder witout name'
-    } else {
-        placeholder = folder
-    }
+function onCreate() {
+
+    console.log('llego');
+
     const $div = document.createElement('div')
     $div.classList.add('folders-root')
 
@@ -25,7 +22,7 @@ function onCreate(folder) {
 
     const $input = document.createElement('input')
     $input.classList.add('new')
-    $input.setAttribute('placeholder', placeholder)
+    $input.setAttribute('placeholder', 'Folder witout name')
 
     $div.appendChild($img)
     $div.appendChild($input)
@@ -37,7 +34,11 @@ function onCreate(folder) {
         if (keycode == 13) {
             const nameNewFolder = $input.value
             $div.remove()
-            createFolder(nameNewFolder, '/')
+            const isCreated = createFolder(nameNewFolder, '/')
+            if (isCreated) {
+                $wrapperRoot.innerHTML = ''
+                folderColumnComponent.renderOnLeft('/')
+            }
         }
     })
 }
@@ -54,45 +55,61 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
         if (type == 'folder') {
             const $folderP = wrapper.lastChild.previousSibling
             wrapper.replaceChild($input, $folderP)
-        } else if (type == 'file') {
+            $input.focus();
+        } else {
             const paragraph = wrapper
-            const paragraphParent = paragraph.parentNode
-            paragraphParent.classList.remove('hover')
-            const $fileP = paragraphParent.lastChild.previousSibling
-            paragraphParent.replaceChild($input, $fileP)
+            const $fileP = paragraph.lastChild.previousSibling
+            paragraph.replaceChild($input, $fileP)
+            $input.value = `.${extension}`
+            $input.focus();
+            $input.setSelectionRange(0, extension.length + 1);
         }
-        $input.focus();
-
         $input.addEventListener('keyup', (e) => {
             const keycode = e.code;
             if (keycode === 'Enter') {
                 const nameNew = $input.value
                 wrapper.remove()
+
+                let absolutePathParent = absolutePath.split('/')
+                if (absolutePathParent[0] == '') {
+                    absolutePathParent = '/'
+                }
+
                 if (type == 'folder') {
-                    let absolutePathParent = absolutePath.split('/')
-                    if (absolutePathParent[0] == '') {
-                        absolutePathParent = ''
-                    }
-                    const isEdited = editFolder(absolutePath, nameNew, absolutePathParent)
-                    if (isEdited) {
+                    const isEditedFolder = editFolder(absolutePath, nameNew, absolutePathParent)
+                    if (isEditedFolder) {
                         folderColumnComponent.renderOnLeft(absolutePathParent)
                     }
-                } else if (type == 'file') {
-                    const nameNewFile = `${nameNew}.${extension}`
-                    editFile(absolutePath, nameNewFile, '')
+                } else {
+                    const isEditedFile = editFile(absolutePath, nameNew)
+                    if (isEditedFile) {
+                        console.log(absolutePathParent);
+                        folderColumnComponent.renderOnLeft(absolutePathParent)
+                    }
                 }
             }
         })
     })
 }
 
-function onRemove(wrapper, folder){
+function onRemove(absolutePathParent, name, type){
     $removeButton.addEventListener('click', () => {
-        removeFolder('', folder)
+        console.log(absolutePathParent, '<br>', name);
+
+        if (type == 'folder') {
+            const isRemoveFolder = removeFolder(absolutePathParent, name)
+            if (isRemoveFolder) {
+                folderColumnComponent.renderOnLeft(absolutePathParent)
+            }
+        } else {
+            const isRemoveFile = removeFile(absolutePathParent, name)
+            if (isRemoveFile) {
+                folderColumnComponent.renderOnLeft(absolutePathParent)
+            }
+        }
     })
 }
 
-$createButton.addEventListener('click', onCreate)
-export { onEdit, onRemove }
+export { onEdit, onRemove, onCreate }
 
 

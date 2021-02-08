@@ -8,6 +8,7 @@ function listenerClickFolder($folder) {
     $folder.addEventListener('click', (e) => {
         e.stopPropagation()
 
+        const $currentFolder = document.querySelector('#currentFolder')
         const $everyFolder = document.querySelectorAll('.folders-root')
         $everyFolder.forEach($f => $f.classList.remove('hover'))
 
@@ -15,10 +16,11 @@ function listenerClickFolder($folder) {
         const nameFolder = $folder.textContent.trim()
         const type = 'folder'
 
+        $currentFolder.textContent = nameFolder
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFolder}`)
 
         onEdit($folder, `${folderColumnComponent.absolutePath}${nameFolder}`, nameFolder, type, '')
-        // onRemove($folder, nameFolder)
+        onRemove(`${folderColumnComponent.absolutePath}`, nameFolder)
     })
 }
 
