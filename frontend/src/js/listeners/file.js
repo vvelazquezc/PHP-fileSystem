@@ -10,6 +10,8 @@ function listenerClickFile($file) {
         console.log(this)
         e.stopPropagation()
 
+        console.log('soy file');
+
         const $everyFolder = document.querySelectorAll('.folders-root')
         $everyFolder.forEach($f => $f.classList.remove('hover'))
 
