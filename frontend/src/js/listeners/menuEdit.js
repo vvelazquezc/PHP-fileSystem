@@ -2,6 +2,7 @@ import { folderColumnComponent } from "../components/folder.js"
 import { createFolder } from "../services/createFolder.js"
 import { editFile } from "../services/editFile.js"
 import { editFolder } from "../services/editFolder.js"
+import { removeFile } from "../services/removeFile.js"
 import { removeFolder } from "../services/removeFolder.js"
 
 const $editButton = document.querySelector('#edit')
@@ -91,13 +92,20 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
     })
 }
 
-function onRemove(absolutePathParent, name){
+function onRemove(absolutePathParent, name, type){
     $removeButton.addEventListener('click', () => {
         console.log(absolutePathParent, '<br>', name);
-        const isRemove = removeFolder(absolutePathParent, name)
-        if (isRemove) {
-            console.log('carpeta eliminada');
-            folderColumnComponent.renderOnLeft(absolutePathParent)
+
+        if (type == 'folder') {
+            const isRemoveFolder = removeFolder(absolutePathParent, name)
+            if (isRemoveFolder) {
+                folderColumnComponent.renderOnLeft(absolutePathParent)
+            }
+        } else {
+            const isRemoveFile = removeFile(absolutePathParent, name)
+            if (isRemoveFile) {
+                folderColumnComponent.renderOnLeft(absolutePathParent)
+            }
         }
     })
 }

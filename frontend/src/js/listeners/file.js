@@ -1,6 +1,6 @@
 import { folderColumnComponent } from "../components/folder.js";
 import { infoComponent } from "../components/info.js";
-import { onEdit } from "./menuEdit.js";
+import { onEdit, onRemove } from "./menuEdit.js";
 
 
 import { openModal } from "./modal.js";
@@ -23,9 +23,7 @@ function listenerClickFile($file) {
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFile}`)
 
         onEdit($file, `${folderColumnComponent.absolutePath}${nameFile}`, nameFile, type, extension)
-        // onRemove(`${folderColumnComponent.absolutePath}`, nameFolder)
-
-    //     // onRemove($file, nameFolder);
+        onRemove(`${folderColumnComponent.absolutePath}`, nameFile, type)
     })
 }
 

@@ -1,4 +1,4 @@
-const endpointUrl = 'http://192.168.64.2/php//PHP-fileSystem/backend/folder/read.php'
+const endpointUrl = 'http://192.168.64.2/php/PHP-fileSystem/backend/folder/read.php'
 const $content = document.querySelector('.folders-info')
 
 function getInfoFolder(folder) {
