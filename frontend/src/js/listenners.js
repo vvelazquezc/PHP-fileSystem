@@ -35,9 +35,7 @@ const secondTreeRender = function () {
             .then(function (response) {
             const ret = response.replace(`${relativeText}`, "");
             const listOfResults = JSON.parse(ret);
-            console.log(listOfResults);
             listOfResults.map(function (item) {
-            console.log(item);
             });
             secondTree.innerHTML = "";
             if (listOfResults.length)
