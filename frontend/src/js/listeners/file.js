@@ -5,7 +5,8 @@ import { onEdit, onRemove } from "./menuEdit.js";
 import { openModal } from "./modal.js";
 
 function listenerClickFile($file) {
-    $file.addEventListener('click', (e) => {
+    $file.addEventListener('click', function(e){
+        console.log(this)
         e.stopPropagation()
 
         const $everyFolder = document.querySelectorAll('.folders-root')
@@ -23,7 +24,7 @@ function listenerClickFile($file) {
         const absolutePath = `${folderColumnComponent.absolutePath}${nameFile}`
         infoComponent.render(`${folderColumnComponent.absolutePath}${nameFile}`)
         onEdit($file, nameFile, type, extension);
-        openModal(nameFile, extension, absolutePath)
+        openModal(nameFile, extension, absolutePath, this)
     //     // onRemove($file, nameFolder);
     })
 }
