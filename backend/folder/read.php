@@ -10,11 +10,15 @@
     $size = 0;
     if ($extension == 'null') {
         $extension = 'folder';
-        // $size = foldersSize($dir);
+        $size = foldersSize($dir);
+        if ($size == "NAN " || "NAN") {
+            $size = 0;
+        }
     } else {
         $extension = str_replace('"', '', $extension);
         $size = filesSize($dir);
     };
+
 
     $array_info = array(
         'access' => date("F d Y H:i:s.", fileatime($dir)),

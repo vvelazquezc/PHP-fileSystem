@@ -7,10 +7,7 @@ import { openModal } from "./modal.js";
 
 function listenerClickFile($file) {
     $file.addEventListener('click', function(e){
-        console.log(this)
         e.stopPropagation()
-
-        console.log('soy file');
 
         const $everyFolder = document.querySelectorAll('.folders-root')
         $everyFolder.forEach($f => $f.classList.remove('hover'))
@@ -27,8 +24,18 @@ function listenerClickFile($file) {
 
         onEdit($file, `${folderColumnComponent.absolutePath}${nameFile}`, nameFile, type, extension)
         onRemove(`${folderColumnComponent.absolutePath}`, nameFile, type)
-        openModal(nameFile, extension, absolutePath, this)
+        openModal(nameFile, extension, `${folderColumnComponent.absolutePath}`, this)
     })
 }
 
-export { listenerClickFile }
+function listenerdblClickFile($file) {
+    $file.addEventListener('click', function(e){
+
+        const nameFile = $file.textContent.trim()
+        const name_splitted = nameFile.split('.')
+        const extension = name_splitted.pop()
+        // openModal(nameFile, extension, `${folderColumnComponent.absolutePath}`, this)
+    })
+}
+
+export { listenerClickFile, listenerdblClickFile }

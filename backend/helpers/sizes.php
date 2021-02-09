@@ -12,7 +12,7 @@ function filesSize($file_name) {
 function foldersSize ($dir) {
     $size = 0;
     foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
-        $size += is_file($each) ? filesize($each) : folderSize($each);
+        $size += is_file($each) ? filesize($each) : foldersSize($each);
     }
     $size = formatBytes($size, 0);
     return $size;

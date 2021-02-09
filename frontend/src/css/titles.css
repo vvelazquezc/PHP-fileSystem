@@ -18,6 +18,7 @@ h5{
 }
 .text{
     font-size: 12px;
+    margin: 0;
     font-weight: 400;
     color: var(--color-text);
 }
@@ -42,6 +43,7 @@ h5{
 .hover .text{
     font-size: 12px;
     color: white;
+    margin: 0;
     font-weight: 600;
 }
 .hover-folder {

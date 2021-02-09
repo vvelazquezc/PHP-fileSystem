@@ -7,7 +7,6 @@ import { onEdit, onRemove } from "./menuEdit.js";
 function listenerClickFolder($folder) {
     $folder.addEventListener('click', (e) => {
         e.stopPropagation()
-        console.log('soy carpeta');
 
         const $currentFolder = document.querySelector('#currentFolder')
         const $everyFolder = document.querySelectorAll('.folders-root')

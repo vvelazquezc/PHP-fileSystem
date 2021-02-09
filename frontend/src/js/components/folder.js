@@ -1,5 +1,5 @@
 import { createElementFromHTML } from "../helpers/html.js";
-import { listenerClickFile } from "../listeners/file.js";
+import { listenerClickFile, listenerdblClickFile } from "../listeners/file.js";
 import { listenerClickFolder, listenerDblClickFolder } from "../listeners/folder.js";
 import { onCreate } from "../listeners/menuEdit.js";
 import { listContent } from "../services/listContent.js";
@@ -47,6 +47,7 @@ export const folderColumnComponent = {
                         listenerDblClickFolder($item)
                     } else {
                         listenerClickFile($item)
+                        listenerdblClickFile($item)
                     }
 
                     $parent.appendChild($item)
