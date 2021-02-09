@@ -3,6 +3,7 @@ import { listenerClickFile, listenerdblClickFile } from "../listeners/file.js";
 import { listenerClickFolder, listenerDblClickFolder } from "../listeners/folder.js";
 import { onCreate } from "../listeners/menuEdit.js";
 import { listContent } from "../services/listContent.js";
+import { folderTreeComponent } from "./tree.js";
 
 export const folderColumnComponent = {
     state: {
@@ -32,7 +33,6 @@ export const folderColumnComponent = {
 
         const $createButton = document.querySelector('#create')
         $createButton.addEventListener('click', onCreate)
-
         return listContent(absolutePath)
             .then(items => {
                 $parent.innerHTML = ''
@@ -41,6 +41,7 @@ export const folderColumnComponent = {
                     const isFolder = !path.includes('.')
 
                     const $item = this.createElement(path)
+                    folderTreeComponent.render(path);
 
                     if (isFolder) {
                         listenerClickFolder($item)

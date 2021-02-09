@@ -1,5 +1,3 @@
-import { folderColumnComponent } from "./components/folder.js"
-import { folderTreeComponent } from "./components/tree.js"
+import { folderColumnComponent } from "./components/folder.js";
 
-folderColumnComponent.renderOnLeft('/')
-folderTreeComponent.render('/')
+folderColumnComponent.renderOnLeft('/');

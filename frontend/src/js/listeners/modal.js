@@ -5,9 +5,7 @@
   //const relativeSubDir = relativeDir + "/" + subText;
 
 const openModal =  (nameFile, extension, absolutePath, element) => {
-    console.log(absolutePath);
-    //console.log(modalImage, modalAudio, modalVideo)
-    
+
     switch(extension){
         case 'mp4':
             element.setAttribute("data-toggle", "modal");

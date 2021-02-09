@@ -81,7 +81,6 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
                 } else {
                     const isEditedFile = editFile(absolutePath, nameNew)
                     if (isEditedFile) {
-                        console.log(absolutePathParent);
                         folderColumnComponent.renderOnLeft(absolutePathParent)
                     }
                 }
@@ -91,9 +90,7 @@ function onEdit(wrapper, absolutePath, name, type, extension) {
 }
 
 function onRemove(absolutePathParent, name, type){
-    console.log(type);
     $removeButton.addEventListener('click', () => {
-        console.log(absolutePathParent, '<br>', name);
 
         if (type == 'folder') {
             const isRemoveFolder = removeFolder(absolutePathParent, name)

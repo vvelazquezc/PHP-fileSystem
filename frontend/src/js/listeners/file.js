@@ -34,7 +34,7 @@ function listenerdblClickFile($file) {
         const nameFile = $file.textContent.trim()
         const name_splitted = nameFile.split('.')
         const extension = name_splitted.pop()
-        // openModal(nameFile, extension, `${folderColumnComponent.absolutePath}`, this)
+        openModal(nameFile, extension, `${folderColumnComponent.absolutePath}`, this)
     })
 }
 

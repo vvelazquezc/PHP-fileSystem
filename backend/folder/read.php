@@ -1,8 +1,10 @@
 <?php
     require '../helpers/sizes.php';
 
-    $absolute_path = $_GET["folder"];
-    $dir = "../../root" . $absolute_path;
+    $absolute_path = $_GET["folder"][0] == '/' ? $_GET["folder"] : '/' . $_GET["folder"];
+
+    chdir("../../root");
+    $dir = $absolute_path;
 
     $extensions = explode('.', $absolute_path);
     $extension = json_encode($extensions[1]);
@@ -21,9 +23,9 @@
 
 
     $array_info = array(
-        'access' => date("F d Y H:i:s.", fileatime($dir)),
-        'change' => date("F d Y H:i:s.", filectime($dir)),
-        'modificated' => date("F d Y H:i:s.", filemtime($dir)),
+        'access' => date("F d Y H:i:s", fileatime($dir)),
+        'change' => date("F d Y H:i:s", filectime($dir)),
+        'modificated' => date("F d Y H:i:s", filemtime($dir)),
         'size_bytes' => $size,
         'name_folder' => $absolute_path,
         'extension' => $extension,

@@ -10,21 +10,16 @@ export const folderTreeComponent = {
         </ul>
         `)
     },
-    render: function (absolutePath) {
+    render: function (path) {
+        if (path === '/') path = '/root';
+                const $parent = document.querySelector('.folders-tree')
+                const isFolder = !path.includes('.')
+                if (isFolder) {
+                    const $item = this.createElement(path)
 
-        return listContent(absolutePath)
-            .then(items => {
-                items.forEach(path => {
-                    const $parent = document.querySelector('.folders-tree')
-                    const isFolder = !path.includes('.')
-                    if (isFolder) {
-                        const $item = this.createElement(path)
+                    // listenerClickTree($item)
 
-                        // listenerClickTree($item)
-
-                    $parent.appendChild($item)
-                    }
-                });
-            })
+                $parent.appendChild($item)
+                }
     }
 }
